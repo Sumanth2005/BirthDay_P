@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#000000,#1b001b,#330033);
+min-height:100vh;
+overflow-x:hidden;
+text-align:center;
+}
+
+/* Pages */
+.page{
+display:none;
+padding:30px;
+}
+
+.active{
+display:block;
+}
+
+/* Buttons */
+.btn{
+margin-top:30px;
+padding:15px 40px;
+border:none;
+border-radius:50px;
+font-size:22px;
+cursor:pointer;
+color:white;
+background:linear-gradient(to right,#ff1493,#ff69b4);
+transition:0.5s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px hotpink;
+}
+
+/* Page 1 */
+.panda{
+font-size:120px;
+animation:bounce 2s infinite;
+margin-top:50px;
+}
+
+h1{
+color:#ff66ff;
+text-shadow:0 0 15px hotpink;
+}
+
+.message{
+color:white;
+font-size:22px;
+margin-top:20px;
+}
+
+/* Page 2 */
+.mainImage{
+width:320px;
+max-width:90%;
+border-radius:20px;
+box-shadow:0 0 20px hotpink;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+max-width:900px;
+margin:auto;
+margin-top:30px;
+}
+
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 0 15px hotpink;
+transition:0.5s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* Page 3 */
+.clickText{
+font-size:45px;
+color:white;
+margin-top:150px;
+}
+
+/* Cake Page */
+.cake{
+font-size:220px;
+animation:zoomIn 1.5s ease;
+}
+
+.birthdayText{
+font-size:60px;
+color:#ff66ff;
+text-shadow:0 0 20px hotpink;
+animation:fadeIn 2s ease;
+margin-bottom:20px;
+}
+
+/* Page 5 Frame */
+.frameBox{
+margin-top:120px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.frame{
+border:3px solid hotpink;
+padding:40px;
+border-radius:20px;
+box-shadow:0 0 25px hotpink;
+background:rgba(0,0,0,0.6);
+color:white;
+font-size:26px;
+max-width:600px;
+}
+
+/* Page 6 */
+.finalBox{
+margin-top:150px;
+}
+
+.finalText{
+font-size:40px;
+color:#ff66ff;
+text-shadow:0 0 20px hotpink;
+}
+
+/* Animations */
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@keyframes zoomIn{
+from{transform:scale(0);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+/* Hearts */
+.heart{
+position:fixed;
+color:#ff1493;
+animation:float 5s linear infinite;
+pointer-events:none;
+}
+
+@keyframes float{
+from{transform:translateY(100vh);}
+to{transform:translateY(-100px);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+
+<div class="panda">🐼</div>
+
+<h1>My CutiePie was born today,<br>21 Years Ago ❤️</h1>
+
+<p class="message">Yes, it's YOU! A little surprise awaits...</p>
+
+<button class="btn" onclick="showGallery()">🎁 Start The Surprise</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+
+<img src="pranju1.jpg" class="mainImage">
+
+<h1>Beautiful Memories ❤️</h1>
+
+<div class="gallery">
+<img src="pranju2.jpg">
+<img src="pranju3.jpg">
+<img src="pranju4.jpg">
+<img src="pranju5.jpg">
+</div>
+
+<button class="btn" onclick="showClickPage()">Next →</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page">
+
+<h1 class="clickText">Decoration in Progress ❤️</h1>
+
+<button class="btn" onclick="showBirthdayPage()">❤️ Decorate ❤️</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="page4" class="page">
+
+<h1 class="birthdayText">Happy Birthday CutiePie ❤️</h1>
+
+<div class="cake">🎂</div>
+
+<button class="btn" onclick="showFramePage()">Next →</button>
+</div>
+
+<!-- PAGE 5 -->
+<div id="page5" class="page">
+
+<div class="frameBox">
+<div class="frame">
+
+💖 You are special 💖<br><br>
+
+Wishing you endless happiness and a bright, successful journey ahead ✨<br><br>
+
+<button class="btn" onclick="finalSurprise()">
+One last Surprise 🎁
+</button>
+
+</div>
+</div>
+
+</div>
+
+<!-- PAGE 6 -->
+<div id="page6" class="page">
+
+<div class="finalBox">
+
+<div class="frame">
+💝 One last gift in my hand look here 💝
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* Page control */
+function hideAll(){
+document.getElementById("page1").classList.remove("active");
+document.getElementById("page2").classList.remove("active");
+document.getElementById("page3").classList.remove("active");
+document.getElementById("page4").classList.remove("active");
+document.getElementById("page5").classList.remove("active");
+document.getElementById("page6").classList.remove("active");
+}
+
+function showGallery(){
+hideAll();
+document.getElementById("page2").classList.add("active");
+}
+
+function showClickPage(){
+hideAll();
+document.getElementById("page3").classList.add("active");
+}
+
+function showBirthdayPage(){
+hideAll();
+document.getElementById("page4").classList.add("active");
+}
+
+function showFramePage(){
+hideAll();
+document.getElementById("page5").classList.add("active");
+}
+
+function finalSurprise(){
+hideAll();
+document.getElementById("page6").classList.add("active");
+}
+
+/* Floating hearts */
+function createHeart(){
+let heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+15)+"px";
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),5000);
+}
+
+setInterval(createHeart,200);
+
+</script>
+
+</body>
+</html>
